@@ -55,7 +55,7 @@ EDIT_ELEMENT.addEventListener("click", async (ev) => {
         feedback.classList.add("invalid-feedback");
       }, 5000);
     }
-    // window.location.href = "../index.html";
+    window.location.href = "../index.html";
   }
 });
 
