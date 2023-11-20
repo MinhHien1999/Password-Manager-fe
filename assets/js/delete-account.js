@@ -10,7 +10,7 @@ async function deleteAccount(account_id){
         if (result.isConfirmed) {
             const trAccount = document.getElementById(`acc-${account_id}`)
             $.ajax({
-                url: `https://password-manager-yakc.onrender.com/${account_id}`,
+                url: `https://password-manager-yakc.onrender.com/account/${account_id}`,
                 type: 'DELETE',
             }).done((response) =>{
                 trAccount.remove()
