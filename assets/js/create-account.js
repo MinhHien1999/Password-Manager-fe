@@ -58,7 +58,7 @@ function validateAccount(data) {
 }
 
 async function createAccount(account) {
-  const response = await fetch("http://localhost:3000/account", {
+  const response = await fetch(`https://password-manager-yakc.onrender.com/account`, {
     method: "post",
     mode: "cors",
     headers: {
@@ -71,7 +71,7 @@ async function createAccount(account) {
 }
 
 async function getCategory() {
-  const response = await fetch("http://localhost:3000/category");
+  const response = await fetch("https://password-manager-yakc.onrender.com/category");
   const data = await response.json();
   data.forEach((category) => {
     const optionEl = createElementOptionCategory(category);

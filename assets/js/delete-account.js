@@ -1,3 +1,5 @@
+
+
 async function deleteAccount(account_id){
     Swal.fire({
         title: "Bạn có chắc chắn muốn xóa tài khoản này?",
@@ -8,7 +10,7 @@ async function deleteAccount(account_id){
         if (result.isConfirmed) {
             const trAccount = document.getElementById(`acc-${account_id}`)
             $.ajax({
-                url: `http://localhost:3000/account/${account_id}`,
+                url: `https://password-manager-yakc.onrender.com/${account_id}`,
                 type: 'DELETE',
             }).done((response) =>{
                 trAccount.remove()

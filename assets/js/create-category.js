@@ -24,7 +24,7 @@ function validateCategory(data){
 }
 
 async function createCategory(category){
-    const response = await fetch("http://localhost:3000/category", {
+    const response = await fetch("https://password-manager-yakc.onrender.com/category", {
         method: "post",
         mode: "cors",
         headers: {

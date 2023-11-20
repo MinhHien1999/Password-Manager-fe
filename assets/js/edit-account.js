@@ -10,7 +10,7 @@ const siteEL = document.getElementById("site")
 const noteEL = document.getElementById("note");
 
 async function getAccountById(){
-  const response = await fetch(`http://localhost:3000/account/${ACCOUNT_ID}`)
+  const response = await fetch(`https://password-manager-yakc.onrender.com/account/${ACCOUNT_ID}`)
   const data = await response.json()
   username.value = data.username
   password.value = data.password
@@ -69,7 +69,7 @@ function validateAccount(data) {
 }
 
 async function updateAccount(account) {
-  const response = await fetch(`http://localhost:3000/account/${ACCOUNT_ID}`, {
+  const response = await fetch(`https://password-manager-yakc.onrender.com/${ACCOUNT_ID}`, {
     method: "put",
     mode: "cors",
     headers: {
@@ -82,7 +82,7 @@ async function updateAccount(account) {
 }
 
 async function getCategory() {
-  const response = await fetch("http://localhost:3000/category");
+  const response = await fetch("https://password-manager-yakc.onrender.com/category");
   const data = await response.json();
   data.forEach((category) => {
     const optionEl = createElementOptionCategory(category);

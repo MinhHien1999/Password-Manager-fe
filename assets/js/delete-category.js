@@ -9,7 +9,7 @@ async function deleteCategory(id){
         if (result.isConfirmed) {
             const tr = document.getElementById(`category-${id}`)
             $.ajax({
-                url: `http://localhost:3000/category/${id}`,
+                url: `https://password-manager-yakc.onrender.com/category/${id}`,
                 type: 'DELETE',
             }).done((response) =>{
                 tr.remove()

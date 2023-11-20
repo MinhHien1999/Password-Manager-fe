@@ -1,7 +1,8 @@
 const ACCOUNT_ELEMENT = document.getElementById("account-data");
 
 async function getAll() {
-  const response = await fetch("http://localhost:3000/account/");
+  
+  const response = await fetch(`https://password-manager-yakc.onrender.com/account/`);
   const data = await response.json();
   data.forEach((account) => {
     const tr_data = createElementAccount(account);
@@ -35,7 +36,7 @@ async function showPassword(account_id){
   const password = document.getElementById(`pass-${account_id}`)
   if(password.classList.contains("visible") == true){
     $.ajax({
-      url: `http://localhost:3000/account/show/${account_id}`,
+      url: `https://password-manager-yakc.onrender.com/account/show/${account_id}`,
       type: 'GET',
     }).done((response) =>{
       password.innerHTML = `${response.password}`

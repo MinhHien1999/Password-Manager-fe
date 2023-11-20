@@ -1,7 +1,7 @@
 const CATEGORIES_ELEMENT = document.getElementById("categories-data");
 
 async function getAll() {
-  const response = await fetch("http://localhost:3000/category");
+  const response = await fetch("https://password-manager-yakc.onrender.com/category");
   const data = await response.json();
   data.forEach((category) => {
     const tr_data = createElementCategory(category);
