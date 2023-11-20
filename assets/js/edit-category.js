@@ -28,7 +28,7 @@ function validateCategory(data){
 }
 
 async function editCategory(category){
-    const result = await fetch(`https://password-manager-yakc.onrender.com/${CATEGORY_ID}`, {
+    const result = await fetch(`https://password-manager-yakc.onrender.com/category/${CATEGORY_ID}`, {
         method: "PUT",
         mode: "cors",
         headers: {

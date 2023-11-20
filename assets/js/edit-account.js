@@ -1,23 +1,25 @@
 const EDIT_ELEMENT = document.getElementById("edit");
 const feedback = document.getElementById("feedback");
-const queryString = new URLSearchParams(window.location.search)
+const queryString = new URLSearchParams(window.location.search);
 const ACCOUNT_ID = queryString.get("id");
 const CATEGORY_ELEMENT = document.getElementById("category");
-const username = document.getElementById("username")
+const username = document.getElementById("username");
 const password = document.getElementById("password");
 const category = document.getElementById("category");
-const siteEL = document.getElementById("site")
+const siteEL = document.getElementById("site");
 const noteEL = document.getElementById("note");
 
-async function getAccountById(){
-  const response = await fetch(`https://password-manager-yakc.onrender.com/account/${ACCOUNT_ID}`)
-  const data = await response.json()
-  username.value = data.username
-  password.value = data.password
-  site.value = data.site
-  note.value = data.note
-  const optionEL = document.getElementById(`${data.category._id}`)
-  optionEL.selected = "true"
+async function getAccountById() {
+  const response = await fetch(
+    `https://password-manager-yakc.onrender.com/account/${ACCOUNT_ID}`
+  );
+  const data = await response.json();
+  username.value = data.username;
+  password.value = data.password;
+  site.value = data.site;
+  note.value = data.note;
+  const optionEL = document.getElementById(`${data.category._id}`);
+  optionEL.selected = "true";
 }
 EDIT_ELEMENT.addEventListener("click", async (ev) => {
   const category_select = document.querySelector("#category");
@@ -53,7 +55,7 @@ EDIT_ELEMENT.addEventListener("click", async (ev) => {
         feedback.classList.add("invalid-feedback");
       }, 5000);
     }
-    window.location.href = "../index.html";
+    // window.location.href = "../index.html";
   }
 });
 
@@ -61,7 +63,7 @@ function validateAccount(data) {
   if (
     data.username.trim() == "" ||
     data.password.trim() == "" ||
-    (data.category.id.trim() == "") && (data.category.title.trim() == "")
+    (data.category.id.trim() == "" && data.category.title.trim() == "")
   ) {
     return false;
   }
@@ -69,20 +71,25 @@ function validateAccount(data) {
 }
 
 async function updateAccount(account) {
-  const response = await fetch(`https://password-manager-yakc.onrender.com/${ACCOUNT_ID}`, {
-    method: "put",
-    mode: "cors",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(account),
-  });
+  const response = await fetch(
+    `https://password-manager-yakc.onrender.com/account/${ACCOUNT_ID}`,
+    {
+      method: "put",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(account),
+    }
+  );
   return response;
 }
 
 async function getCategory() {
-  const response = await fetch("https://password-manager-yakc.onrender.com/category");
+  const response = await fetch(
+    "https://password-manager-yakc.onrender.com/category"
+  );
   const data = await response.json();
   data.forEach((category) => {
     const optionEl = createElementOptionCategory(category);
@@ -100,4 +107,4 @@ function createElementOptionCategory(category) {
   return optionEl;
 }
 getCategory();
-getAccountById()
+getAccountById();
