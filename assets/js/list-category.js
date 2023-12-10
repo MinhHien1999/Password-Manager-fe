@@ -13,7 +13,11 @@ function createElementCategory(data) {
   const tr = document.createElement("tr");
   tr.setAttribute("id", `category-${data._id}`);
   tr.innerHTML = `
-                <td class="text-center">${data.title}</td>
+                <td class="text-center">
+                <a href="category-detail.html?id=${data._id}" style="color: unset">
+                  ${data.title}
+                </a>
+                </td>
                 <td class="text-center">
                     <button class="btn btn-sm btn-danger category-delete" onclick="deleteCategory('${data._id}')">
                         <i class="fa fa-trash"></i>
